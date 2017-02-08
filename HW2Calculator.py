@@ -60,7 +60,26 @@ def test():
         print("negative multiplication passed")
     else:
         print("negative multiplication failed")
-    
+    if 0 == Divider(0,5):
+        print("dividing zero test passed")
+    else:
+        print("dividing zero test failed")
+    if 5 == Divider(5,1):
+        print("dividing by 1 test passed")
+    else:
+        print("dividing by 1 test failed")
+    if 2 == Divider(5,2):
+        print("positive division test passed")
+    else:
+        print("positive division test failed")
+    if -3 == Divider(-5,2):
+        print("mixed division test passed")
+    else:
+        print("mixed division test failed")
+    if 2 == Divider(-5,-2):
+        print("negative division test passed")
+    else:
+        print("negative division test failed")
 def main():
     test()
 
