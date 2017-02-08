@@ -3,6 +3,10 @@ def Adder(a, b):
     return a + b
 def Subtracter(a,b):
     return a - b
+def Multiplier(a,b):
+    return a*b
+def Divider(a,b):
+    return a//b
 def test():
     if 3 == Adder(1,2):
         print("positive integer test passed")
@@ -36,6 +40,27 @@ def test():
         print("zero subtraction passed")
     else:
         print("zero subtraction passed")
+    if 300 == Multiplier(1,300):
+        print("multi identity test passed")
+    else:
+        print("multi identity test failed")
+    if 0 == Multiplier(0,99):
+        print("multiplication by zero passed")
+    else:
+        print("multiplication by zero failed")
+    if 6 == Multiplier(2,3):
+        print("positive multiplication passed")
+    else:
+        print("positive muliplication failed")
+    if -6 == Multiplier(2,-3):
+        print("mixed multiplication passed")
+    else:
+        print("mixed multiplication failed")
+    if 6 == Multiplier(-2,-3):
+        print("negative multiplication passed")
+    else:
+        print("negative multiplication failed")
+    
 def main():
     test()
 
