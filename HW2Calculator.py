@@ -137,7 +137,44 @@ def test():
     else:
         print("generic division test failed")
 def main():
-    test()
+    print("Welcome to a simple Python Calculator")
+    print("when prompted enter each integer and your operator")
+    print("the allowed operators are +,-,*,/")
+    print("note: / is floor division and will return an integer")
+    print("also note that the integers will be used in the order")
+    print("they are input, so (first int) (operator) (second int)")
+    cont = True
+    while cont:
+        try:
+            int1 = int(input("Input your first integer and press enter"))
+            int2 = int(input("Input your second integer and press enter"))
+        except:
+            print("input not an integer")
+            continue
+        op = input("Input your operator and press enter")
+        tbool, result = controller(int1,int2,op)
+        if not tbool:
+            if result == 0:
+                print("one or both of your integer inputs is not an intger")
+            elif result == -1:
+                print("Error: Division by zero is not defined")
+            elif result == -2:
+                print("you entered an invalid operator")
+        else:
+            print(str(int1) + " " + op + " " + str(int2) + " = " + str(result))
+        valid = False
+        while not valid:
+            stay = input("Would you like to continue, type y or n")
+            if stay == 'y':
+                valid = True
+                cont = True
+            elif stay == 'n':
+                valid = True
+                cont = False
+            else:
+                valid = False
+                cont = True
+                print("invalid input")
 
 if __name__ == '__main__':
     main()
