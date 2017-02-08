@@ -7,6 +7,22 @@ def Multiplier(a,b):
     return a*b
 def Divider(a,b):
     return a//b
+def controller(a,b,op):
+    if type(a) != int or type(b) != int:
+        return False, 0
+    elif op == '+':
+        return True, Adder(a,b)
+    elif op == '-':
+        return True, Subtracter(a,b)
+    elif op == '*':
+        return True, Multiplier(a,b)
+    elif op == '/':
+        if b == 0:
+            return False, -1
+        else:
+            return True, Divider(a,b)
+    else:
+        return False, -2
 def test():
     if 3 == Adder(1,2):
         print("positive integer test passed")
@@ -80,6 +96,46 @@ def test():
         print("negative division test passed")
     else:
         print("negative division test failed")
+    testbool, testnum = controller('a','b','op')
+    if not testbool and testnum == 0:
+        print("non integer, char test passed")
+    else:
+        print("nont integer, char test failed")
+    testbool, testnum = controller(1, 0.5, 'op')
+    if not testbool and testnum == 0:
+        print("non integer, float test passed")
+    else:
+        print("nont integer, float test failed")
+    testbool, testnum = controller(5,0,'/')
+    if not testbool and testnum == -1:
+        print("divide by zero test passed")
+    else:
+        print("divide by zero test failed")
+    testbool, testnum = controller(5,1,'&')
+    if not testbool and testnum == -2:
+        print("invalid operator test passed")
+    else:
+        print("invalid operator test failed")
+    testbool, testnum = controller(5, 1, '+')
+    if testbool and testnum == 6:
+        print("generic addition test passed")
+    else:
+        print("generic addition test failed")
+    testbool, testnum = controller(5,2,'-')
+    if testbool and testnum == 3:
+        print("generic subtraction test passed")
+    else:
+        print("generic subtraction test failed")
+    testbool, testnum = controller(5,2,'*')
+    if testbool and testnum == 10:
+        print("generic multiplication test passed")
+    else:
+        print("generic multiplication test failed")
+    testbool, testnum = controller(5,2,'/')
+    if testbool and testnum == 2:
+        print("generic division test passed")
+    else:
+        print("generic division test failed")
 def main():
     test()
 
